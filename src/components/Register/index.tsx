@@ -9,8 +9,8 @@ const Register = () => {
 
   return (
     <div>
+      <button onClick={() => setIsModalVisible(false)}>x</button>
       <RigisterForm />
-      <span onClick={() => setIsModalVisible(false)}>x</span>
     </div>
   );
 };

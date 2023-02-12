@@ -17,6 +17,7 @@ const Input = forwardRef(
           {...rest}
           ref={ref}
         />
+
         <span>{error ? error : "_"}</span>
       </div>
     );
