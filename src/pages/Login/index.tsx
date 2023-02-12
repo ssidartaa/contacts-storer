@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
+
+import { LoginContext } from "../../contexts/LoginContext";
 
 import LoginForm from "../../components/LoginForm";
 import Register from "../../components/Register";
 
 const Login = () => {
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const { isModalVisible, setIsModalVisible } = useContext(LoginContext);
 
   return (
     <>
