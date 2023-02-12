@@ -2,9 +2,11 @@ import { createContext, useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import {
   IClient,
+  IContact,
   IContextProps,
   ILoginContextValues,
   ILoginData,
@@ -15,8 +17,6 @@ import loginSchema from "../validations/login.validation";
 import registerSchema from "../validations/register.validation";
 
 import api from "../services/api";
-
-import { useNavigate } from "react-router-dom";
 
 export const LoginContext = createContext<ILoginContextValues>(
   {} as ILoginContextValues
@@ -31,6 +31,8 @@ const LoginProvider = ({ children }: IContextProps) => {
 
   const [client, setClient] = useState<IClient | null>(null);
 
+  const [contacts, setContacts] = useState<IContact[] | null>(null);
+
   const [loading, setLoading] = useState<boolean>(true);
 
   const navigate = useNavigate();
@@ -44,6 +46,8 @@ const LoginProvider = ({ children }: IContextProps) => {
 
         api.get<IClient>("/clients/owner").then(({ data }) => {
           setClient(data);
+
+          setContacts(data.contacts!);
 
           navigate("/dashboard", { replace: true });
         });
@@ -125,8 +129,6 @@ const LoginProvider = ({ children }: IContextProps) => {
         localStorage.setItem("@ContactsStorer:token", data.token);
 
         setToken(localStorage.getItem("@ContactsStorer:token"));
-
-        loginReset();
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -140,16 +142,11 @@ const LoginProvider = ({ children }: IContextProps) => {
           theme: "light",
           toastId: 1,
         });
+      })
+      .finally(() => {
+        loginReset();
       });
   });
-
-  const logout = () => {
-    localStorage.clear();
-
-    setToken(localStorage.getItem("@ContactsStorer:token"));
-
-    navigate("/", { replace: true });
-  };
 
   return (
     <LoginContext.Provider
@@ -166,7 +163,8 @@ const LoginProvider = ({ children }: IContextProps) => {
         setToken,
         client,
         loading,
-        logout,
+        contacts,
+        setContacts,
       }}
     >
       {children}

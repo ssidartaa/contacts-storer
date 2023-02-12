@@ -25,17 +25,6 @@ const schema = yup.object().shape({
             10
           )}-${phone.slice(10)}`
     ),
-  password: yup
-    .string()
-    .required("Password is a required field.")
-    .matches(
-      /(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*_-])).{8,}$/,
-      "Your password must contain at least one capital letter, one number and one special character, and be at least 8 characters long."
-    ),
-  confirmPassword: yup
-    .string()
-    .required("Confirm password is a required field.")
-    .oneOf([yup.ref("password")], "Passwords must be the same."),
 });
 
 export default schema;

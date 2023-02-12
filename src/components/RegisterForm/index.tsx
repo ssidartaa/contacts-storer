@@ -14,7 +14,7 @@ const RigisterForm = () => {
       <Input
         placeholder="Type your full name"
         label="Full Name"
-        id="fullName"
+        id="registerFullName"
         error={registerErrors.fullName?.message}
         {...register("fullName")}
       />
@@ -30,7 +30,7 @@ const RigisterForm = () => {
       <Input
         placeholder="Type your phone number"
         label="Phone Number"
-        id="phoneNumber"
+        id="registerPhoneNumber"
         error={registerErrors.phoneNumber?.message}
         {...register("phoneNumber")}
       />
@@ -52,7 +52,7 @@ const RigisterForm = () => {
         {...register("confirmPassword")}
       />
 
-      <button>Register</button>
+      <button type="submit">Register</button>
     </form>
   );
 };
