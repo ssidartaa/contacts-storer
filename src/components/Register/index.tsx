@@ -1,10 +1,16 @@
+import { useContext } from "react";
+
+import { LoginContext } from "../../contexts/LoginContext";
+
 import RigisterForm from "../RegisterForm";
 
 const Register = () => {
+  const { setIsModalVisible } = useContext(LoginContext);
+
   return (
     <div>
       <RigisterForm />
-      <span>x</span>
+      <span onClick={() => setIsModalVisible(false)}>x</span>
     </div>
   );
 };

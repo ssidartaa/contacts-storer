@@ -1,31 +1,46 @@
+import { useContext } from "react";
+
+import { LoginContext } from "../../contexts/LoginContext";
+
 import Input from "../Input";
 import InputPassword from "../InputPassword";
 
 const RigisterForm = () => {
+  const { register, handleRegisterValues, registerErrors } =
+    useContext(LoginContext);
+
   return (
-    <form>
+    <form onSubmit={handleRegisterValues}>
       <Input
         placeholder="Type your full name"
         label="Full Name"
         id="fullName"
+        error={registerErrors.fullName?.message}
+        {...register("fullName")}
       />
       <Input
         placeholder="Type your email"
         label="Email"
-        id="email"
+        id="registerEmail"
         type="email"
+        error={registerErrors.email?.message}
+        {...register("email")}
       />
 
       <Input
         placeholder="Type your phone number"
         label="Phone Number"
         id="phoneNumber"
+        error={registerErrors.phoneNumber?.message}
+        {...register("phoneNumber")}
       />
 
       <InputPassword
         placeholder="Type your password"
         label="Password"
-        id="password"
+        id="registerPassword"
+        error={registerErrors.password?.message}
+        {...register("password")}
       />
 
       <Input
@@ -33,6 +48,8 @@ const RigisterForm = () => {
         label="Confirm Password"
         id="confirmPassword"
         type="password"
+        error={registerErrors.confirmPassword?.message}
+        {...register("confirmPassword")}
       />
 
       <button>Register</button>

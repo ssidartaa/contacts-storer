@@ -1,20 +1,18 @@
 import { ForwardedRef, forwardRef, useState } from "react";
 
-import { IInputProps } from "../Input";
-
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import { Container } from "./styles";
+import { IInputProps } from "../Input/interfaces";
 
 const InputPassword = forwardRef(
   (
-    { id, label, ...rest }: IInputProps,
+    { id, label, error, ...rest }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     const [type, setType] = useState("password");
 
     return (
-      <Container>
+      <div>
         <label htmlFor={id}>{label}</label>
 
         <div>
@@ -26,7 +24,8 @@ const InputPassword = forwardRef(
             <FaEye onClick={() => setType("password")} />
           )}
         </div>
-      </Container>
+        <span>{error ? error : "_"}</span>
+      </div>
     );
   }
 );

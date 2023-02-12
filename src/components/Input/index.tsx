@@ -1,13 +1,9 @@
-import { ForwardedRef, forwardRef, InputHTMLAttributes } from "react";
-
-export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  id: string;
-}
+import { ForwardedRef, forwardRef } from "react";
+import { IInputProps } from "./interfaces";
 
 const Input = forwardRef(
   (
-    { id, label, placeholder, type = "text", ...rest }: IInputProps,
+    { id, label, placeholder, type = "text", error, ...rest }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     return (
@@ -21,6 +17,7 @@ const Input = forwardRef(
           {...rest}
           ref={ref}
         />
+        <span>{error ? error : "_"}</span>
       </div>
     );
   }
