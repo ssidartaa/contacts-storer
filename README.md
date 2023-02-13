@@ -1,4 +1,4 @@
-# contacts-storer
+# Contacts Storer
 
 Um projeto onde você pode cadastrar sua conta e adicionar contatos, por meio de email, numero de telefone e nome completo, onde guarda e lista os contatos adicionados, assim como também podendo atualiza-los e deleta-los.
 
