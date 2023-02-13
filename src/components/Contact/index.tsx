@@ -5,17 +5,28 @@ import { ContactContext } from "../../contexts/ContactContext";
 import { IContact } from "../../contexts/interfaces";
 import ContactInfo from "../ContactInfo";
 
-const Contact = ({ id, fullName, email, phoneNumber, createdAt }: IContact) => {
+const Contact = ({ id, fullName, email, phoneNumber }: IContact) => {
   const { isUpdateContactVisible, setIsUpdateContactVisible } =
     useContext(ContactContext);
 
   return (
     <>
       <li>
-        <p>{fullName}</p>
-        <p>{email}</p>
-        <p>{phoneNumber}</p>
-        <p>{createdAt}</p>
+        <p>
+          <strong>Full name: </strong>
+          {fullName}
+        </p>
+
+        <p>
+          <strong>Email: </strong>
+          {email}
+        </p>
+
+        <p>
+          <strong>Telephone number: </strong>
+          {phoneNumber}
+        </p>
+
         <button onClick={() => setIsUpdateContactVisible(true)}>Info</button>
       </li>
 

@@ -5,12 +5,14 @@ import { ClientContext } from "../../contexts/ClientContext";
 import Input from "../Input";
 import InputPassword from "../InputPassword";
 
+import Container from "./style";
+
 const UpdateClientForm = () => {
   const { update, handleUpdateClientValues, updateErrors } =
     useContext(ClientContext);
 
   return (
-    <form onSubmit={handleUpdateClientValues}>
+    <Container onSubmit={handleUpdateClientValues}>
       <Input
         placeholder="Type your full name"
         label="Full Name"
@@ -45,7 +47,7 @@ const UpdateClientForm = () => {
       />
 
       <button type="submit">Update</button>
-    </form>
+    </Container>
   );
 };
 

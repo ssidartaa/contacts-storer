@@ -2,19 +2,35 @@ import { useContext } from "react";
 
 import { ClientContext } from "../../contexts/ClientContext";
 
+import Container from "./style";
+
 const DeleteClient = () => {
   const { setIsDeleteModalVisible, handleDeleteClient } =
     useContext(ClientContext);
 
   return (
-    <div>
-      <strong>Do you really want to delete your client?</strong>
+    <Container>
+      <div className="modalBackground">
+        <div className="modalHeader">
+          <h3>Are you sure?</h3>
+        </div>
+        <div className="modalContent">
+          <strong>Do you really want to delete your account?</strong>
 
-      <div>
-        <button onClick={handleDeleteClient}>Yes</button>
-        <button onClick={() => setIsDeleteModalVisible(false)}>No</button>
+          <div className="buttonsContainer">
+            <button className="deleteButton" onClick={handleDeleteClient}>
+              Delete
+            </button>
+            <button
+              className="cancelButton"
+              onClick={() => setIsDeleteModalVisible(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

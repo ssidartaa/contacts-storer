@@ -5,12 +5,14 @@ import { LoginContext } from "../../contexts/LoginContext";
 import Input from "../Input";
 import InputPassword from "../InputPassword";
 
+import Container from "./style";
+
 const RigisterForm = () => {
   const { register, handleRegisterValues, registerErrors } =
     useContext(LoginContext);
 
   return (
-    <form onSubmit={handleRegisterValues}>
+    <Container onSubmit={handleRegisterValues}>
       <Input
         placeholder="Type your full name"
         label="Full Name"
@@ -18,6 +20,7 @@ const RigisterForm = () => {
         error={registerErrors.fullName?.message}
         {...register("fullName")}
       />
+
       <Input
         placeholder="Type your email"
         label="Email"
@@ -53,7 +56,7 @@ const RigisterForm = () => {
       />
 
       <button type="submit">Register</button>
-    </form>
+    </Container>
   );
 };
 

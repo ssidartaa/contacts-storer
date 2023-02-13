@@ -4,7 +4,7 @@ import { LoginContext } from "../../contexts/LoginContext";
 import { ContactContext } from "../../contexts/ContactContext";
 
 import Contact from "../Contact/";
-import EmptyContactList from "../../EmptyContactList";
+import EmptyContactList from "../EmptyContactList";
 import AddContact from "../AddContact";
 
 const Main = () => {
