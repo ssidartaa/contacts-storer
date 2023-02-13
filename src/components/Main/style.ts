@@ -15,6 +15,7 @@ const Container = styled.div`
     .addContactOpenModalContainer {
       display: flex;
       margin: 0 1rem;
+      animation: fadeIn 1s;
 
       button {
         width: 100%;

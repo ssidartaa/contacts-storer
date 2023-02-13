@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
+import "animate.css";
+
 const Container = styled.main`
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 1s;
 
   .backgorundContainer {
     width: 100%;

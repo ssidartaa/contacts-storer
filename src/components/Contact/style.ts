@@ -5,6 +5,7 @@ const Container = styled.li`
   max-width: 350px;
   display: flex;
   flex-direction: column;
+  animation: fadeIn 1.2s;
 
   .backgorundContainer {
     background-color: var(--Primary-Color);

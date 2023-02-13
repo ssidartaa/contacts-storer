@@ -25,6 +25,7 @@ const Container = styled.div`
     padding: 1rem 0 2rem;
     background-color: var(--Primary-Color);
     margin: 0 1rem;
+    animation: fadeInLeft 0.2s;
 
     .closeModalContainer {
       display: flex;

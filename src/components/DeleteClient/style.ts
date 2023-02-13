@@ -25,6 +25,7 @@ const Container = styled.div`
     padding: 2rem 0;
     background-color: var(--Primary-Color);
     margin: 0 1rem;
+    animation: fadeIn 1.5s;
 
     .modalHeader {
       color: var(--Gray-0);
