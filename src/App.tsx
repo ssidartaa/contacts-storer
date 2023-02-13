@@ -7,11 +7,14 @@ import RoutesMain from "./routes";
 
 import "react-toastify/dist/ReactToastify.css";
 
+import Global from "./styles";
+
 const App = () => {
   return (
     <LoginProvider>
       <ClientProvider>
         <ContactProvider>
+          <Global />
           <RoutesMain />
           <ToastContainer
             position="top-right"

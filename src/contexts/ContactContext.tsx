@@ -77,7 +77,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
 
@@ -94,7 +94,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });
@@ -115,7 +115,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
         updateContactReset();
@@ -130,7 +130,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });
@@ -152,7 +152,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
 
@@ -167,7 +167,7 @@ const ContactProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });

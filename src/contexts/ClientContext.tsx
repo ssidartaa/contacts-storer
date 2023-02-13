@@ -13,7 +13,9 @@ import {
 import { LoginContext } from "./LoginContext";
 
 import updateSchema from "../validations/updateClient.validation";
+
 import api from "../services/api";
+
 import { toast } from "react-toastify";
 
 export const ClientContext = createContext<IClientValues>({} as IClientValues);
@@ -57,7 +59,7 @@ const ClientProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
 
@@ -74,7 +76,7 @@ const ClientProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });
@@ -106,7 +108,7 @@ const ClientProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       })
@@ -119,7 +121,7 @@ const ClientProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });

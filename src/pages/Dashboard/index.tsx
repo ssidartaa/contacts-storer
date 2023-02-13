@@ -13,9 +13,9 @@ const Dashboard = () => {
     <>
       <Header />
 
-      <Main />
-
       {isModalVisible && <ClientInfo />}
+
+      <Main />
     </>
   );
 };

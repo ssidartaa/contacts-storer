@@ -89,7 +89,7 @@ const LoginProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
         setIsModalVisible(false);
@@ -104,7 +104,7 @@ const LoginProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       });
@@ -122,7 +122,7 @@ const LoginProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
 
@@ -139,7 +139,7 @@ const LoginProvider = ({ children }: IContextProps) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: "dark",
           toastId: 1,
         });
       })

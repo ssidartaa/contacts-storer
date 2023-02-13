@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { IInputProps } from "../Input/interfaces";
 
+import Container from "./style";
+
 const InputPassword = forwardRef(
   (
     { id, label, error, ...rest }: IInputProps,
@@ -12,20 +14,23 @@ const InputPassword = forwardRef(
     const [type, setType] = useState("password");
 
     return (
-      <div>
-        <label htmlFor={id}>{label}</label>
+      <Container error={error} className="inputPasswordContainer">
+        <div className="inputPasswordContent">
+          <label htmlFor={id}>{label}</label>
 
-        <div>
-          <input id={id} type={type} {...rest} ref={ref} />
+          <div className="inputPassword">
+            <input id={id} type={type} {...rest} ref={ref} />
 
-          {type === "password" ? (
-            <FaEyeSlash onClick={() => setType("text")} />
-          ) : (
-            <FaEye onClick={() => setType("password")} />
-          )}
+            {type === "password" ? (
+              <FaEyeSlash className="eye" onClick={() => setType("text")} />
+            ) : (
+              <FaEye className="eye" onClick={() => setType("password")} />
+            )}
+          </div>
         </div>
+
         <span>{error ? error : "_"}</span>
-      </div>
+      </Container>
     );
   }
 );

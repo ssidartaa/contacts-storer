@@ -5,3 +5,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   error?: string;
 }
+
+interface IContainerProps {
+  error?: string;
+}

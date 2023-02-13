@@ -4,24 +4,36 @@ import { ClientContext } from "../../contexts/ClientContext";
 
 import DeleteClient from "../DeleteClient";
 
+import { IoCloseCircle } from "react-icons/io5";
+
 import UpdateClientForm from "../UpdateClientForm";
+
+import Container from "./style";
 
 const ClientInfo = () => {
   const { setIsModalVisible, setIsDeleteModalVisible, isDeleteModalVisible } =
     useContext(ClientContext);
 
   return (
-    <div>
-      <button onClick={() => setIsModalVisible(false)}>x</button>
+    <Container>
+      <div className="modalBackground">
+        <div className="closeModalContainer">
+          <IoCloseCircle onClick={() => setIsModalVisible(false)} />
+        </div>
 
-      <UpdateClientForm />
+        <div className="modalContentBackground">
+          <UpdateClientForm />
 
-      <div>
-        <button onClick={() => setIsDeleteModalVisible(true)}>Delete</button>
+          <div className="deleteModalOpenContainer">
+            <button onClick={() => setIsDeleteModalVisible(true)}>
+              Delete
+            </button>
 
-        {isDeleteModalVisible && <DeleteClient />}
+            {isDeleteModalVisible && <DeleteClient />}
+          </div>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

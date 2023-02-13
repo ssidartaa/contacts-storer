@@ -4,11 +4,13 @@ import { LoginContext } from "../../contexts/LoginContext";
 
 import Input from "../Input";
 
+import Container from "./style";
+
 const LoginForm = () => {
   const { login, handleLoginValues, loginErrors } = useContext(LoginContext);
 
   return (
-    <form onSubmit={handleLoginValues}>
+    <Container onSubmit={handleLoginValues}>
       <Input
         placeholder="Type your email"
         label="Email"
@@ -25,8 +27,9 @@ const LoginForm = () => {
         error={loginErrors.password?.message}
         {...login("password")}
       />
+
       <button type="submit">Login</button>
-    </form>
+    </Container>
   );
 };
 
