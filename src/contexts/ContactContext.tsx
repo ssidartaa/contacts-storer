@@ -1,6 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -28,8 +35,7 @@ const ContactProvider = ({ children }: IContextProps) => {
   const [isAddContactVisible, setIsAddContactVisible] =
     useState<boolean>(false);
 
-  const [isUpdateContactVisible, setIsUpdateContactVisible] =
-    useState<boolean>(false);
+  const [updateContactModal, setUpdateContactModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (token) {
@@ -41,7 +47,7 @@ const ContactProvider = ({ children }: IContextProps) => {
         setContacts(data);
       });
     }
-  }, [token, isAddContactVisible, isUpdateContactVisible]);
+  }, [token, isAddContactVisible, updateContactModal]);
 
   const {
     register: addContact,
@@ -100,7 +106,11 @@ const ContactProvider = ({ children }: IContextProps) => {
       });
   });
 
-  const handleUpdateContactValues = (data: IContactUpdate, id: string) => {
+  const handleUpdateContactValues = (
+    data: IContactUpdate,
+    id: string,
+    modal: Dispatch<SetStateAction<boolean>>
+  ) => {
     api.defaults.headers = {
       Authorization: `Bearer ${token}`,
     } as ITokenHeaders;
@@ -118,8 +128,12 @@ const ContactProvider = ({ children }: IContextProps) => {
           theme: "dark",
           toastId: 1,
         });
+
         updateContactReset();
-        setIsUpdateContactVisible(false);
+
+        modal(false);
+
+        setUpdateContactModal(false);
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -136,7 +150,10 @@ const ContactProvider = ({ children }: IContextProps) => {
       });
   };
 
-  const handleDeleteContact = (id: string) => {
+  const handleDeleteContact = (
+    id: string,
+    modal: Dispatch<SetStateAction<boolean>>
+  ) => {
     api.defaults.headers = {
       Authorization: `Bearer ${token}`,
     } as ITokenHeaders;
@@ -156,7 +173,9 @@ const ContactProvider = ({ children }: IContextProps) => {
           toastId: 1,
         });
 
-        setIsUpdateContactVisible(false);
+        modal(false);
+
+        setUpdateContactModal(false);
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -181,9 +200,8 @@ const ContactProvider = ({ children }: IContextProps) => {
         addContact,
         handleAddContactValues,
         addContactErrors,
-        isUpdateContactVisible,
-        setIsUpdateContactVisible,
         updateContact,
+        setUpdateContactModal,
         handleUpdateContact,
         handleUpdateContactValues,
         updateContactErrors,

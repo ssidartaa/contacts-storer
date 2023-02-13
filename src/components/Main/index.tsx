@@ -7,6 +7,8 @@ import Contact from "../Contact/";
 import EmptyContactList from "../EmptyContactList";
 import AddContact from "../AddContact";
 
+import Container from "./style";
+
 const Main = () => {
   const { contacts } = useContext(LoginContext);
 
@@ -14,15 +16,17 @@ const Main = () => {
     useContext(ContactContext);
 
   return (
-    <>
+    <Container>
       <main>
-        <section>
+        <section className="addContactOpenModalContainer">
           <button onClick={() => setIsAddContactVisible(true)}>
             Add Contact
           </button>
         </section>
 
-        <section>
+        {isAddContactVisible && <AddContact />}
+
+        <section className="contactsList">
           <h3>Contacts:</h3>
 
           {contacts!.length ? (
@@ -45,9 +49,7 @@ const Main = () => {
           )}
         </section>
       </main>
-
-      {isAddContactVisible && <AddContact />}
-    </>
+    </Container>
   );
 };
 

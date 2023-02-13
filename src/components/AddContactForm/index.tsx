@@ -4,12 +4,14 @@ import { ContactContext } from "../../contexts/ContactContext";
 
 import Input from "../Input";
 
+import Container from "./style";
+
 const AddContactForm = () => {
   const { handleAddContactValues, addContact, addContactErrors } =
     useContext(ContactContext);
 
   return (
-    <form onSubmit={handleAddContactValues}>
+    <Container onSubmit={handleAddContactValues}>
       <Input
         placeholder="Type your full name"
         label="Full Name"
@@ -35,7 +37,7 @@ const AddContactForm = () => {
       />
 
       <button type="submit">Add</button>
-    </form>
+    </Container>
   );
 };
 

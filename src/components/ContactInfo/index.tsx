@@ -2,24 +2,51 @@ import { useContext } from "react";
 
 import { ContactContext } from "../../contexts/ContactContext";
 
-import { IContact } from "../../contexts/interfaces";
-
 import { IoCloseCircle } from "react-icons/io5";
 
 import UpdateContactForm from "../UpdateContactForm";
 
-const ContactInfo = ({ id }: Pick<IContact, "id">) => {
-  const { setIsUpdateContactVisible, handleDeleteContact } =
+import { IContactUpdateAndDeleteProps } from "../../contexts/interfaces";
+
+import Container from "./style";
+
+const ContactInfo = ({
+  id,
+  setIsUpdateContactVisible,
+}: IContactUpdateAndDeleteProps) => {
+  const { setUpdateContactModal, handleDeleteContact } =
     useContext(ContactContext);
 
   return (
-    <div>
-      <IoCloseCircle onClick={() => setIsUpdateContactVisible(false)} />
+    <Container>
+      <div className="modalBackground">
+        <div className="closeModalContainer">
+          <IoCloseCircle
+            onClick={() => {
+              setIsUpdateContactVisible(false);
+              setUpdateContactModal(false);
+            }}
+          />
+        </div>
 
-      <UpdateContactForm id={id} />
+        <div className="modalContentBackground">
+          <UpdateContactForm
+            id={id!}
+            setIsUpdateContactVisible={setIsUpdateContactVisible}
+          />
 
-      <button onClick={() => handleDeleteContact(id!)}>Delete</button>
-    </div>
+          <div className="deleteModalOpenContainer">
+            <button
+              onClick={() =>
+                handleDeleteContact(id!, setIsUpdateContactVisible)
+              }
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </Container>
   );
 };
 

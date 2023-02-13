@@ -1,11 +1,16 @@
 import { useContext } from "react";
 
 import { ContactContext } from "../../contexts/ContactContext";
-import { IContact } from "../../contexts/interfaces";
+import { IContactUpdateAndDeleteProps } from "../../contexts/interfaces";
 
 import Input from "../Input";
 
-const UpdateContactForm = ({ id }: Pick<IContact, "id">) => {
+import Container from "./style";
+
+const UpdateContactForm = ({
+  id,
+  setIsUpdateContactVisible,
+}: IContactUpdateAndDeleteProps) => {
   const {
     updateContact,
     updateContactErrors,
@@ -14,9 +19,9 @@ const UpdateContactForm = ({ id }: Pick<IContact, "id">) => {
   } = useContext(ContactContext);
 
   return (
-    <form
+    <Container
       onSubmit={handleUpdateContact((data) =>
-        handleUpdateContactValues(data, id!)
+        handleUpdateContactValues(data, id!, setIsUpdateContactVisible)
       )}
     >
       <Input
@@ -45,7 +50,7 @@ const UpdateContactForm = ({ id }: Pick<IContact, "id">) => {
       />
 
       <button type="submit">Update</button>
-    </form>
+    </Container>
   );
 };
 

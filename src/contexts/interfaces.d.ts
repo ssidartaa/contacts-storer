@@ -84,11 +84,22 @@ interface IContactValues {
     e?: BaseSyntheticEvent<object, any, any> | undefined
   ) => Promise<void>;
   addContactErrors: FieldErrors<IContact>;
-  isUpdateContactVisible: boolean;
-  setIsUpdateContactVisible: Dispatch<SetStateAction<boolean>>;
   updateContact: UseFormRegister<IContactUpdate>;
+  setUpdateContactModal: Dispatch<SetStateAction<boolean>>;
   handleUpdateContact: UseFormHandleSubmit<Partial<IContact>>;
-  handleUpdateContactValues: (data: IClientUpdate, id: string) => void;
+  handleUpdateContactValues: (
+    data: IClientUpdate,
+    id: string,
+    modal: Dispatch<SetStateAction<boolean>>
+  ) => void;
   updateContactErrors: FieldErrors<IContactUpdate>;
-  handleDeleteContact: (id: string) => void;
+  handleDeleteContact: (
+    id: string,
+    modal: Dispatch<SetStateAction<boolean>>
+  ) => void;
+}
+
+interface IContactUpdateAndDeleteProps {
+  id: string;
+  setIsUpdateContactVisible: Dispatch<SetStateAction<boolean>>;
 }

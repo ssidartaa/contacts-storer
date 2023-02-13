@@ -1,37 +1,55 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { ContactContext } from "../../contexts/ContactContext";
 
 import { IContact } from "../../contexts/interfaces";
 import ContactInfo from "../ContactInfo";
 
+import Container from "./style";
+
 const Contact = ({ id, fullName, email, phoneNumber }: IContact) => {
-  const { isUpdateContactVisible, setIsUpdateContactVisible } =
-    useContext(ContactContext);
+  const { setUpdateContactModal } = useContext(ContactContext);
+
+  const [isUpdateContactVisible, setIsUpdateContactVisible] =
+    useState<boolean>(false);
 
   return (
-    <>
-      <li>
-        <p>
-          <strong>Full name: </strong>
-          {fullName}
-        </p>
+    <Container>
+      <div className="backgorundContainer">
+        <section>
+          <div>
+            <strong>Full name: </strong>
+            <p>{fullName}</p>
+          </div>
 
-        <p>
-          <strong>Email: </strong>
-          {email}
-        </p>
+          <div>
+            <strong>Email: </strong>
+            <p>{email}</p>
+          </div>
 
-        <p>
-          <strong>Telephone number: </strong>
-          {phoneNumber}
-        </p>
+          <div>
+            <strong>Telephone number: </strong>
+            <p>{phoneNumber}</p>
+          </div>
 
-        <button onClick={() => setIsUpdateContactVisible(true)}>Info</button>
-      </li>
+          <button
+            onClick={() => {
+              setIsUpdateContactVisible(true);
+              setUpdateContactModal(true);
+            }}
+          >
+            Info
+          </button>
+        </section>
+      </div>
 
-      {isUpdateContactVisible && <ContactInfo id={id} />}
-    </>
+      {isUpdateContactVisible && (
+        <ContactInfo
+          id={id!}
+          setIsUpdateContactVisible={setIsUpdateContactVisible}
+        />
+      )}
+    </Container>
   );
 };
 

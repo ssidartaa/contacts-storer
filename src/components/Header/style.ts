@@ -16,6 +16,7 @@ const Container = styled.div`
       cursor: pointer;
       color: var(--Gray-0);
       text-decoration: none;
+      outline: none;
     }
 
     nav {

@@ -2,17 +2,25 @@ import { useContext } from "react";
 
 import { ContactContext } from "../../contexts/ContactContext";
 
+import { IoCloseCircle } from "react-icons/io5";
+
 import AddContactForm from "../AddContactForm";
+
+import Container from "./style";
 
 const AddContact = () => {
   const { setIsAddContactVisible } = useContext(ContactContext);
 
   return (
-    <div>
-      <button onClick={() => setIsAddContactVisible(false)}>x</button>
+    <Container>
+      <div className="modalBackground">
+        <div className="closeModalContainer">
+          <IoCloseCircle onClick={() => setIsAddContactVisible(false)} />
+        </div>
 
-      <AddContactForm />
-    </div>
+        <AddContactForm />
+      </div>
+    </Container>
   );
 };
 
