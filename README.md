@@ -31,4 +31,4 @@ Um projeto onde você pode cadastrar sua conta e adicionar contatos, por meio de
 
 ## Para ver o deploy do projeto
 
-<a target="_blank" href="https://contacts-storer.vercel.app/">Vercel</a>
+<a target="_blank" href="https://contacts-storer-ywetz.vercel.app/">Vercel</a>
