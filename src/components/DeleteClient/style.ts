@@ -14,7 +14,7 @@ const Container = styled.div`
   background-color: var(--Modal-Background);
   backdrop-filter: blur(2px);
 
-  .modalBackground {
+  .modalBackgroundDelete {
     width: 100%;
     max-width: 500px;
     display: flex;

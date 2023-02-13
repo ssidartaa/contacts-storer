@@ -10,7 +10,7 @@ const DeleteClient = () => {
 
   return (
     <Container>
-      <div className="modalBackground">
+      <div className="modalBackgroundDelete">
         <div className="modalHeader">
           <h3>Are you sure?</h3>
         </div>
